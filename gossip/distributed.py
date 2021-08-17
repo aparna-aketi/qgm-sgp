@@ -21,7 +21,6 @@ from .utils import (
     create_process_group, communicate, flatten_tensors,
     group_by_dtype, make_logger, unflatten_tensors, quantize_tensor, quantize_layerwise, sparsify_layerwise, unsparsify_layerwise)
 
-from .compressor import QuantizationCompressor, SparsificationCompressor
 
 HEARTBEAT_TIMEOUT = 1000  # maximum time to wait for message (seconds)
 

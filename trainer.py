@@ -16,7 +16,6 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 from torchsummary import summary
 #import resnet
-from vgg import *
 from sgd import SGD
 
 import torch.nn.functional as F
@@ -43,13 +42,13 @@ parser = argparse.ArgumentParser(description='Propert ResNets for CIFAR10 in pyt
 parser.add_argument('--arch', '-a', metavar='ARCH', default='resnet', help = 'resnet or vgg or resquant' )
 parser.add_argument('-depth', '--depth', default=20, type=int,
                     help='depth of the resnet model')
-parser.add_argument('--normtype',   default='batchnorm', help = 'batchnorm or rangenorm or groupnorm' )
+parser.add_argument('--normtype',   default='evonorm', help = 'batchnorm or rangenorm or groupnorm' )
 parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
                     help='number of data loading workers (default: 4)')
 parser.add_argument('--epochs', default=200, type=int, metavar='N',
                     help='number of total epochs to run')
 parser.add_argument('--run_no', default=1, type=str, help='parallel run number, models saved as model_{rank}_{run_no}.th')
-parser.add_argument('-b', '--batch-size', default=128, type=int,
+parser.add_argument('-b', '--batch-size', default=256, type=int,
                     metavar='N', help='mini-batch size (default: 128)')
 parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
                     metavar='LR', help='initial learning rate')
