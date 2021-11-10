@@ -34,19 +34,13 @@ class MixingManager(object):
 
 class UniformMixing(MixingManager):
 
-    def get_mixing_weights(self, residual_adjusted=True):
+    def get_mixing_weights(self):
         """ Create mixing weight dictionary using uniform allocation """
         mixing_weights = {}
         out_peers, _ = self.graph_manager.get_peers()
-
-        w = torch.tensor([1. / (len(out_peers)+1)], device=self.device)
-        mixing_weights['lo'] = w.clone()
-        w_op = w if not residual_adjusted else w / mixing_weights['lo']
-        mixing_weights['uniform'] = w.clone()
-        #print(w)
-        mixing_weights['try'] = torch.tensor([1.0/3.0], device=self.device)
-        for op in out_peers:
-            mixing_weights[op] = w_op.clone()
+        mixing_weights['uniform'] = torch.tensor([1. / (len(out_peers)+1)], device=self.device)
+        #mixing_weights['try'] = torch.tensor([1. / (len(out_peers)+2)], device=self.device)
+        #print(mixing_weights)
         return mixing_weights
 
     def is_uniform(self): return True
