@@ -152,7 +152,7 @@ def partition_trainDataset():
     if args.dataset == 'cifar10':
         classes = 10
         class_size = 5000
-        dataset = datasets.CIFAR10(root='/home/min/a/saketi/Desktop/research/data', train=True, transform=transforms.Compose([
+        dataset = datasets.CIFAR10(root='./data', train=True, transform=transforms.Compose([
                 transforms.RandomHorizontalFlip(),
                 transforms.RandomCrop(32, 4),
                 transforms.ToTensor(),
@@ -161,7 +161,7 @@ def partition_trainDataset():
     elif args.dataset == 'cifar100':
         classes = 100
         class_size = 500
-        dataset = datasets.CIFAR100(root='/home/min/a/saketi/Desktop/research/data', train=True, transform=transforms.Compose([
+        dataset = datasets.CIFAR100(root='./data', train=True, transform=transforms.Compose([
                 transforms.RandomHorizontalFlip(),
                 transforms.RandomCrop(32, 4),
                 transforms.ToTensor(),
@@ -191,12 +191,12 @@ def test_Dataset():
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])
     if args.dataset=='cifar10':
-        dataset = datasets.CIFAR10(root='/home/min/a/saketi/Desktop/research/data', train=False, transform=transforms.Compose([
+        dataset = datasets.CIFAR10(root='./data', train=False, transform=transforms.Compose([
                 transforms.ToTensor(),
                 normalize,
             ]))
     elif args.dataset=='cifar100':
-        dataset = datasets.CIFAR100(root='/home/min/a/saketi/Desktop/research/data', train=False, transform=transforms.Compose([
+        dataset = datasets.CIFAR100(root='./data', train=False, transform=transforms.Compose([
                 transforms.ToTensor(),
                 normalize,
             ]))
