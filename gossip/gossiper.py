@@ -93,8 +93,7 @@ class Gossiper(object):
 
     def refresh_mixing_weights_(self, residual_adjusted=False):
         """ Update mixing-matrix weights """
-        self.mixing_weights = self._mixing_manager.get_mixing_weights(
-            residual_adjusted)
+        self.mixing_weights = self._mixing_manager.get_mixing_weights()
         
 
     def mix_out_msg_(self, out_msg, ps_weight, residual=False):
